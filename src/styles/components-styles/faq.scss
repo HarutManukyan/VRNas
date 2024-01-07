@@ -1,0 +1,43 @@
+.faq {
+  @include base;
+  margin-top: 10rem;
+  position: relative;
+
+  @include respond(tab-port) {
+    margin-top: 10rem;
+  }
+
+  &__svg {
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 0;
+  }
+
+  &__subtitle {
+    @include subtitle;
+    text-align: center;
+  }
+
+  &__title {
+    @include title;
+    text-align: center;
+    margin: 2rem;
+  }
+
+  &__text {
+    @include text;
+    text-align: center;
+  }
+
+  &__item {
+    background-color: $color-black-light;
+    margin: 3rem 0;
+    padding: 2.5rem;
+  }
+
+  &__question {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+}

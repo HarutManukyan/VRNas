@@ -1,0 +1,196 @@
+.contacts {
+  @include base;
+
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 10rem;
+
+    @include respond(tab-port) {
+      display: block;
+    }
+  }
+
+  &__card {
+    background-color: $color-black-light;
+    width: 100%;
+    height: 29rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(
+      90deg,
+      $color-white 0%,
+      $color-black-light 70%
+    );
+    border-image-slice: 1;
+
+    @include respond(tab-port) {
+      margin: 3rem 0;
+    }
+
+    &-title {
+      background: var(
+        --Main-Colors-Linear,
+        linear-gradient(90deg, #0cbaf1 0%, #e95ce9 100%)
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      margin-top: 2rem;
+    }
+
+    &-text {
+      width: 25rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+  }
+
+  &__icon {
+    width: 5rem;
+    height: 5rem;
+    padding: 1rem;
+    background-color: $color-black-dark;
+
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(
+      90deg,
+      rgba(25, 181, 241, 1) 0%,
+      rgba(202, 106, 235, 1) 100%
+    );
+    border-image-slice: 1;
+  }
+
+  &__touch {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15rem;
+
+    @include respond(phone) {
+      display: block;
+    }
+
+    &-img {
+      width: 45rem;
+      height: 55rem;
+
+      @include respond(phone) {
+        display: none;
+      }
+    }
+
+    &-right {
+      width: 60%;
+      margin-left: 2rem;
+
+      @include respond(phone) {
+        width: 100%;
+        margin: 0;
+        margin-top: 2rem;
+      }
+    }
+
+    &-subtitle {
+      @include subtitle;
+      margin: 1rem;
+    }
+
+    &-title {
+      @include title;
+      margin: 1rem;
+    }
+    &-text {
+      @include text;
+      margin-bottom: 2rem;
+      margin: 1rem;
+    }
+
+    &-left {
+      position: relative;
+    }
+
+    &-svg {
+      position: absolute;
+      left: 0%;
+      width: 150%;
+      z-index: -5;
+    }
+
+    &-input {
+      background-color: rgba($color-black-light, 0.3);
+      width: 45%;
+      height: 5rem;
+      margin: 1rem;
+      padding: 1rem;
+      color: $color-white;
+
+      border-width: 1px;
+      border-style: solid;
+      border-image: linear-gradient(
+        90deg,
+        $color-white 0%,
+        $color-black-light 70%
+      );
+      border-image-slice: 1;
+
+      @include respond(tab-port) {
+        width: 100%;
+      }
+    }
+    &-textarea {
+      width: 93%;
+      margin: 1rem;
+      background-color: rgba($color-black-light, 0.5);
+      padding: 2rem;
+      height: 20rem;
+
+      border-width: 1px;
+      border-style: solid;
+      border-image: linear-gradient(
+        90deg,
+        $color-white 0%,
+        $color-black-light 70%
+      );
+      border-image-slice: 1;
+
+      @include respond(tab-port) {
+        width: 100%;
+      }
+    }
+
+    &-btn {
+      text-transform: uppercase;
+      margin: 1rem;
+      padding: 1.2rem 2.4rem;
+      border-width: 1px;
+      border-style: solid;
+      border-image: linear-gradient(
+        90deg,
+        rgba(25, 181, 241, 1) 0%,
+        rgba(202, 106, 235, 1) 100%
+      );
+      border-image-slice: 1;
+
+      background-color: transparent;
+      color: $color-white;
+      font-family: $font-chakra;
+      cursor: pointer;
+
+      &:hover {
+        background-image: linear-gradient(
+          90deg,
+          rgba(25, 181, 241, 1) 0%,
+          rgba(202, 106, 235, 1) 100%
+        );
+      }
+    }
+  }
+}

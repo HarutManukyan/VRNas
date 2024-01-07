@@ -1,0 +1,25 @@
+.faq-page {
+  margin-top: 10rem;
+
+  &__person {
+    position: relative;
+    z-index: -3;
+
+    @include respond(phone) {
+      width: 15rem;
+      height: 30rem;
+      object-fit: cover;
+    }
+
+    &-container {
+      position: absolute;
+      margin-top: 3rem;
+    }
+  }
+
+  &__person2 {
+    &-container {
+      right: 0;
+    }
+  }
+}

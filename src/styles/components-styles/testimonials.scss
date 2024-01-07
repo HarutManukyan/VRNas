@@ -1,0 +1,214 @@
+.testimonials {
+  // @include base;
+
+  position: relative;
+  height: 100vh;
+  width: 60vw;
+  margin-top: 15rem;
+
+  &__img {
+    width: 60vw;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include respond(tab-land) {
+      width: 80vw;
+    }
+  }
+
+  &__customer {
+    display: flex;
+    align-items: center;
+
+    &-svg {
+      position: absolute;
+      left: -1rem;
+      z-index: -5;
+      transition: all 0.3s;
+      opacity: 0;
+
+      animation: svg-in 0.5s forwards;
+    }
+
+    &-content {
+      clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0 50%);
+      background-color: $color-black-light;
+      width: 30rem;
+      height: 12rem;
+      transform: scale(0);
+      transform-origin: center left;
+      margin-left: 1rem;
+      padding: 2rem 4rem;
+      transition: all 0.3s;
+      position: relative;
+
+      animation: content-in 0.3s forwards;
+
+      // &--1 {
+      //   position: absolute;
+      //   top: 8rem;
+      //   left: 24rem;
+      // }
+      // &--2 {
+      //   position: absolute;
+      //   top: 21rem;
+      //   left: 34rem;
+      // }
+      // &--3 {
+      //   position: absolute;
+      //   top: 28rem;
+      //   right: -16rem;
+      // }
+      // &--4 {
+      //   position: absolute;
+      //   bottom: 6rem;
+      //   left: 56%;
+      // }
+      // &--5 {
+      //   position: absolute;
+      //   bottom: 8rem;
+      //   left: 14rem;
+      // }
+
+      &--1 {
+        position: absolute;
+        top: 2rem;
+        left: 45rem;
+      }
+      &--2 {
+        position: absolute;
+        top: 21rem;
+        left: 32rem;
+      }
+      &--3 {
+        position: absolute;
+        top: 27rem;
+        right: 4rem;
+      }
+      &--4 {
+        position: absolute;
+        bottom: 3rem;
+        left: 54%;
+      }
+      &--5 {
+        position: absolute;
+        bottom: 7rem;
+        left: 33rem;
+      }
+    }
+
+    &-text {
+      font-size: 1.2rem;
+      color: $color-grey-light;
+    }
+
+    &-name {
+      font-size: 1.2rem;
+      position: absolute;
+      bottom: 1rem;
+      padding-bottom: 5px;
+
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-image: linear-gradient(
+        90deg,
+        rgba(25, 181, 241, 1) 0%,
+        rgba(202, 106, 235, 1) 100%
+      );
+      border-image-slice: 1;
+    }
+
+    &-img {
+      position: relative;
+      z-index: 2;
+
+      border-radius: 50%;
+      width: 5rem;
+      height: 5rem;
+      padding: 1rem;
+      border: 1px solid $color-black-light;
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        border: 1px solid $color-purple;
+      }
+
+      &-container {
+        // &--1 {
+        //   position: absolute;
+        //   top: 10rem;
+        //   left: 17rem;
+        // }
+        // &--2 {
+        //   position: absolute;
+        //   top: 24rem;
+        //   left: 27rem;
+        // }
+        // &--3 {
+        //   position: absolute;
+        //   top: 30rem;
+        //   right: 15rem;
+        // }
+        // &--4 {
+        //   position: absolute;
+        //   bottom: 8rem;
+        //   left: 50%;
+        // }
+        // &--5 {
+        //   position: absolute;
+        //   bottom: 10rem;
+        //   left: 7rem;
+        // }
+
+        &--1 {
+          position: absolute;
+          top: 6rem;
+          left: 40rem;
+        }
+        &--2 {
+          position: absolute;
+          top: 24rem;
+          left: 27rem;
+        }
+        &--3 {
+          position: absolute;
+          top: 30rem;
+          right: 35rem;
+        }
+        &--4 {
+          position: absolute;
+          bottom: 6rem;
+          left: 50%;
+        }
+        &--5 {
+          position: absolute;
+          bottom: 10rem;
+          left: 28rem;
+        }
+      }
+    }
+  }
+}
+@keyframes svg-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes content-in {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

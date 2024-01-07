@@ -1,0 +1,38 @@
+.terms {
+  &__subtitle {
+    @include subtitle;
+    text-align: center;
+    margin-top: 10rem;
+  }
+
+  &__title {
+    @include title;
+    text-align: center;
+  }
+
+  &__text {
+    @include text;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  &__content {
+    @include base;
+    margin: 0 auto;
+
+    // @include respond(tab-port) {
+    //   width: 60%;
+    // }
+  }
+
+  &__name {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 3rem;
+  }
+
+  &__explanation {
+    margin-top: 2rem;
+    @include text;
+  }
+}

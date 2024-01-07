@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Fira+Sans+Condensed:wght@400;600;700&family=Roboto+Condensed:wght@400;600;700&display=swap");
+
+// COLORS
+
+$color-purple: #ca6aeb;
+$color-blue: #19b5f1;
+$color-green: #00c566;
+$color-red: #ff4747;
+$color-yellow: #facc15;
+$color-black-dark: #18181b;
+$color-black-light: #252532;
+$color-grey-dark: #b0b0b2;
+$color-grey-light: #d1d1d1;
+$color-white: #ffffff;
+
+// FONT
+
+$default-font-size: 1.6rem;
+$font-chakra: "Chakra Petch", sans-serif;
+
+// MIXINS
+
+@mixin main-gradient {
+  background: rgb(12, 186, 241);
+  background: linear-gradient(
+    90deg,
+    rgba(12, 186, 241, 1) 0%,
+    rgba(233, 92, 233, 1) 100%
+  );
+}
+
+@mixin base {
+  width: 60%;
+  margin: 0 auto;
+
+  @include respond(desktop) {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  @include respond(tab-port) {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@mixin title {
+  font-size: 4.8rem;
+  text-transform: capitalize;
+
+  @include respond(tab-port) {
+    font-size: 4rem;
+  }
+}
+@mixin subtitle {
+  background: var(
+    --Main-Colors-Linear,
+    linear-gradient(120deg, #0cbaf1 0%, #e95ce9 100%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+@mixin text {
+  color: $color-grey-light;
+  font-size: 1.4rem;
+
+  @include respond(tab-port) {
+    font-size: 1.2rem;
+  }
+}
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- desktop
+- big-desktop
+
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint == mid {
+    @media only screen and (max-width: 47.5em) {
+      @content;
+    } //750px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == desktop {
+    @media only screen and (max-width: 95em) {
+      @content;
+    } //1500px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 130.5em) {
+      @content;
+    } //1800
+  }
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  overflow-x: hidden;
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12, 12/16
+  }
+}
+
+body {
+  box-sizing: border-box;
+  font-size: $default-font-size;
+  overflow-x: hidden;
+  background-color: #18181b;
+  font-family: $font-chakra;
+  color: $color-white;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.app {
+  position: relative;
+
+  &__vector {
+    &--1 {
+      &-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+
+    &--2 {
+      &-container {
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}
+.button {
+  background-image: linear-gradient(
+    90deg,
+    rgba(25, 181, 241, 1) 0%,
+    rgba(202, 106, 235, 1) 100%
+  );
+  padding: 2rem 4rem;
+
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(
+    90deg,
+    rgba(25, 181, 241, 1) 0%,
+    rgba(202, 106, 235, 1) 100%
+  );
+  border-image-slice: 1;
+
+  font-family: $font-chakra;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: $color-white;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow:
+      0 0 20px 0 rgba(25, 181, 241, 1),
+      0 0 20px 5px rgba(202, 106, 235, 1);
+  }
+}

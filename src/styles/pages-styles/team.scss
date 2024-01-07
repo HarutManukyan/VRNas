@@ -1,0 +1,28 @@
+.team {
+  @include base;
+
+  &__subtitle {
+    @include subtitle;
+    text-align: center;
+    margin-top: 10rem;
+  }
+
+  &__title {
+    @include title;
+    text-align: center;
+    margin-bottom: 15rem;
+  }
+
+  &__cards {
+    margin-top: -10rem;
+    margin-bottom: 40rem;
+  }
+
+  &__stats {
+    margin-top: 65rem;
+
+    @include respond(phone) {
+      margin-top: 160rem;
+    }
+  }
+}

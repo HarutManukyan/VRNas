@@ -1,0 +1,45 @@
+.page {
+  @include base;
+
+  &__top {
+    position: relative;
+    margin-top: 8rem;
+
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-image: linear-gradient(
+      90deg,
+      rgba(25, 181, 241, 1) 0%,
+      rgba(202, 106, 235, 1) 100%
+    );
+    border-image-slice: 1;
+
+    padding-bottom: 8rem;
+
+    &-title {
+      font-size: 6.4rem;
+      font-weight: 600;
+      text-transform: capitalize;
+      text-align: center;
+    }
+
+    &-path {
+      font-weight: 600;
+      text-align: center;
+
+      & span {
+        font-weight: 300;
+        color: $color-grey-light;
+        text-transform: capitalize;
+      }
+    }
+
+    &-svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -5;
+    }
+  }
+}

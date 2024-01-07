@@ -1,0 +1,224 @@
+.header {
+  @include base;
+  padding: 5rem 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+  z-index: 5;
+
+  &__logo {
+    &-container {
+      cursor: pointer;
+    }
+  }
+
+  &__menu {
+    height: 100vh;
+    width: 100vw;
+    padding: 0 7rem;
+
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: -100%;
+    background-color: rgba($color-black-light, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s;
+    animation: header__in 0.3s forwards;
+
+    &-out {
+      height: 100vh;
+      width: 100vw;
+      padding: 0 7rem;
+
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      left: -100%;
+      background-color: rgba($color-black-light, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: all 0.3s;
+      animation: header__out 0.3s forwards;
+    }
+
+    & a {
+      text-decoration: none;
+      color: $color-white;
+      display: block;
+      margin: 2rem 0;
+      font-size: 3rem;
+      transition: all 0.3s;
+
+      &:hover {
+        text-shadow: 7px 11px 15px rgba(233, 92, 233, 0.63);
+      }
+    }
+
+    &-dropdown {
+      color: $color-white;
+      font-family: $font-chakra;
+      background-color: transparent;
+      border: none;
+      text-transform: capitalize;
+      font-size: 3rem;
+      overflow: scroll;
+
+      & option {
+        background-color: $color-black-light;
+        text-transform: capitalize;
+        font-size: 3rem;
+      }
+    }
+  }
+
+  &__dropdown {
+    &-link {
+      margin: 3rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+
+    &-item {
+      color: $color-white;
+      transition: all 0.3s;
+
+      &:hover {
+        text-shadow: 4px 4px 15px rgba(233, 92, 233, 0.63);
+      }
+
+      &:not(:last-child) {
+        margin-right: 4rem;
+      }
+    }
+  }
+
+  & select {
+    color: $color-white;
+    font-family: $font-chakra;
+    background-color: transparent;
+    border: none;
+    text-transform: capitalize;
+
+    & option {
+      background-color: $color-black-light;
+      text-transform: capitalize;
+    }
+  }
+
+  &__btn {
+    padding: 1.2rem 2.4rem;
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(
+      90deg,
+      rgba(25, 181, 241, 1) 0%,
+      rgba(202, 106, 235, 1) 100%
+    );
+    border-image-slice: 1;
+
+    background-color: transparent;
+    color: $color-white;
+    font-family: $font-chakra;
+    cursor: pointer;
+
+    @include respond(phone) {
+      margin-right: 3rem;
+    }
+
+    &:hover {
+      background-image: linear-gradient(
+        90deg,
+        rgba(25, 181, 241, 1) 0%,
+        rgba(202, 106, 235, 1) 100%
+      );
+    }
+  }
+}
+
+.header__label {
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  cursor: pointer;
+}
+
+.header__burger {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+}
+
+.header__span {
+  background: #fff;
+  border-radius: 10px;
+  height: 4px;
+  margin: 4px 0;
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.header__span:nth-of-type(1) {
+  width: 50%;
+}
+
+.header__span:nth-of-type(2) {
+  width: 100%;
+}
+
+.header__span:nth-of-type(3) {
+  transition: all 0.3s;
+  width: 75%;
+}
+
+.header__input[type="checkbox"] {
+  display: none;
+}
+
+.header__input[type="checkbox"]:checked ~ span:nth-of-type(1) {
+  transform-origin: bottom;
+  transform: rotatez(45deg) translate(8px, 10px);
+  width: 80%;
+}
+
+.header__input[type="checkbox"]:checked ~ span:nth-of-type(2) {
+  transform-origin: top;
+  transform: rotatez(-45deg);
+
+  width: 80%;
+}
+
+.header__input[type="checkbox"]:checked ~ span:nth-of-type(3) {
+  transform-origin: bottom;
+  width: 50%;
+  transform: translate(27px, 4px) rotatez(45deg);
+  opacity: 0;
+}
+
+@keyframes header__in {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes header__out {
+  0% {
+    left: 0%;
+  }
+
+  100% {
+    left: -100%;
+  }
+}
